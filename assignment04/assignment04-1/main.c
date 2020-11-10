@@ -14,7 +14,7 @@
 
 void delay(void)
 {
-    volatile counter = 0;
+    volatile int  counter = 0;
     while (counter < 100000)
     {
         counter++;
