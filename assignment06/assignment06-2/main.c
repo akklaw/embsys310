@@ -69,8 +69,8 @@ void main(void)
     // Set bit[0] to 1 to enable clock to PortA
     // 1. Enable clock to Peripheral
 
-#if 1    
-    RCC_AHB2ENR |= 0x1;    
+#if 0    
+    //RCC_AHB2ENR |= 0x1;    
 #else    
     
     // Replace above statement with function call below    
@@ -78,7 +78,7 @@ void main(void)
     enable_rcc(0);
  #else    
     // debug code
-    enable_rcc_in_c(0);
+    //enable_rcc_in_c(0);
  #endif    
     
 #endif  
