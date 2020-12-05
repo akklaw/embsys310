@@ -1,0 +1,219 @@
+###############################################################################
+#
+# IAR ELF Linker V8.40.1.212/W32 for ARM                  04/Dec/2020  20:53:49
+# Copyright 2007-2019 IAR Systems AB.
+#
+#    Output file  =
+#        C:\repos\embsys310\assignment07\assignment07-1\Debug\Exe\blink_LED1.out
+#    Map file     =
+#        C:\repos\embsys310\assignment07\assignment07-1\Debug\List\blink_LED1.map
+#    Command line =
+#        -f C:\Users\ADMINI~1\AppData\Local\Temp\EWE669.tmp
+#        (C:\repos\embsys310\assignment07\assignment07-1\Debug\Obj\delay.o
+#        C:\repos\embsys310\assignment07\assignment07-1\Debug\Obj\main.o
+#        C:\repos\embsys310\assignment07\assignment07-1\Debug\Obj\startup_stm321475xx.o
+#        --no_out_extension -o
+#        C:\repos\embsys310\assignment07\assignment07-1\Debug\Exe\blink_LED1.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        C:\repos\embsys310\assignment07\assignment07-1\Debug\List\blink_LED1.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.3\arm\config\linker\ST\stm32l475xG.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x0] |
+                [from 0x800'0000 to 0x80f'ffff] { ro };
+define block CSTACK with size = 8K, alignment = 8 { };
+define block PROC_STACK with size = 0, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P3":  place in [from 0x2000'0000 to 0x2001'7fff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+initialize by copy { rw };
+
+No sections matched the following patterns:
+
+  ro section application_specific_ro  in "P2|P5"
+  rw section application_specific_rw  in "P2|P5"
+  section .textrw                     in "P4"
+
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            const     0x800'0000    0x40  startup_stm321475xx.o [1]
+                             - 0x800'0040    0x40
+
+"P1":                                       0x1b0
+  .text              ro code   0x800'0040    0x80  main.o [1]
+  .text              ro code   0x800'00c0    0x1c  delay.o [1]
+  .text              ro code   0x800'00dc    0x2e  startup_stm321475xx.o [1]
+  .text              ro code   0x800'010a    0x2e  copy_init3.o [4]
+  .text              ro code   0x800'0138    0x28  data_init.o [4]
+  .text              ro code   0x800'0160    0x22  fpinit_M.o [3]
+  .iar.init_table    const     0x800'0184    0x14  - Linker created -
+  .text              ro code   0x800'0198    0x1e  cmain.o [4]
+  .text              ro code   0x800'01b6     0x4  exit.o [2]
+  .text              ro code   0x800'01bc     0xa  cexit.o [4]
+  .text              ro code   0x800'01c8    0x14  exit.o [5]
+  .text              ro code   0x800'01dc     0xc  cstartup_M.o [4]
+  .rodata            const     0x800'01e8     0x0  copy_init3.o [4]
+  Initializer bytes  const     0x800'01e8     0x8  <for P3 s0>
+                             - 0x800'01f0   0x1b0
+
+"P3", part 1 of 2:                            0x8
+  P3 s0                       0x2000'0000     0x8  <Init block>
+    .data            inited   0x2000'0000     0x4  main.o [1]
+    .bss             inited   0x2000'0004     0x4  delay.o [1]
+                            - 0x2000'0008     0x8
+
+"P3", part 2 of 2:                         0x2000
+  CSTACK                      0x2000'0008  0x2000  <Block>
+    CSTACK           uninit   0x2000'0008  0x2000  <Block tail>
+                            - 0x2000'2008  0x2000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+          0x0          0x0       0x1
+   0x800'01f0   0x80f'ffff  0xf'fe10
+  0x2000'2008  0x2001'7fff  0x1'5ff8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8:
+           0x800'01e8   0x8
+    1 destination range, total size 0x8:
+          0x2000'0000   0x8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+command line/config:
+    ------------------------------------------------
+    Total:
+
+C:\repos\embsys310\assignment07\assignment07-1\Debug\Obj: [1]
+    delay.o                     28        4        4
+    main.o                     128        4        4
+    startup_stm321475xx.o       46       64
+    ------------------------------------------------
+    Total:                     202       72        8
+
+dl7M_tln.a: [2]
+    exit.o                       4
+    ------------------------------------------------
+    Total:                       4
+
+m7M_tls.a: [3]
+    fpinit_M.o                  34
+    ------------------------------------------------
+    Total:                      34
+
+rt7M_tl.a: [4]
+    cexit.o                     10
+    cmain.o                     30
+    copy_init3.o                46
+    cstartup_M.o                12
+    data_init.o                 40
+    ------------------------------------------------
+    Total:                     138
+
+shb_l.a: [5]
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
+
+    Gaps                         4        2
+    Linker created                       20    8'192
+----------------------------------------------------
+    Grand Total:               402       94    8'200
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base    0x800'0184         --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'0198         --   Gb  - Linker created -
+?main                    0x800'0199        Code  Gb  cmain.o [4]
+BusFault_Handler         0x800'00f7   0x8  Code  Gb  startup_stm321475xx.o [1]
+CSTACK$$Base            0x2000'0008         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'2008         --   Gb  - Linker created -
+HardFault_Handler        0x800'00e7   0x8  Code  Gb  startup_stm321475xx.o [1]
+MemManage_Handler        0x800'00ef   0x8  Code  Gb  startup_stm321475xx.o [1]
+NMI_Handler              0x800'00df   0x8  Code  Gb  startup_stm321475xx.o [1]
+Region$$Table$$Base      0x800'0184         --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'0198         --   Gb  - Linker created -
+SYS_CLOCK_HZ            0x2000'0000   0x4  Data  Gb  main.o [1]
+SysTick_Handler          0x800'00cf   0xa  Code  Gb  delay.o [1]
+SysTick_Initialize       0x800'0089  0x20  Code  Gb  main.o [1]
+Unused_Handler           0x800'00dd   0x2  Code  Gb  startup_stm321475xx.o [1]
+UsageFault_Handler       0x800'00ff   0x8  Code  Gb  startup_stm321475xx.o [1]
+__cmain                  0x800'0199        Code  Gb  cmain.o [4]
+__exit                   0x800'01c9  0x14  Code  Gb  exit.o [5]
+__iar_copy_init3         0x800'010b  0x2e  Code  Gb  copy_init3.o [4]
+__iar_data_init3         0x800'0139  0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp           0x800'0161        Code  Gb  fpinit_M.o [3]
+__iar_program_start      0x800'01dd        Code  Gb  cstartup_M.o [4]
+__low_level_init         0x800'0107   0x4  Code  Gb  startup_stm321475xx.o [1]
+__vector_table           0x800'0000  0x40  Data  Gb  startup_stm321475xx.o [1]
+_call_main               0x800'01a5        Code  Gb  cmain.o [4]
+_exit                    0x800'01bd        Code  Gb  cexit.o [4]
+_main                    0x800'01b3        Code  Gb  cmain.o [4]
+counter                 0x2000'0004   0x4  Data  Gb  delay.o [1]
+delay                    0x800'00c1   0xe  Code  Gb  delay.o [1]
+exit                     0x800'01b7   0x4  Code  Gb  exit.o [2]
+main                     0x800'0041  0x48  Code  Gb  main.o [1]
+
+
+[1] = C:\repos\embsys310\assignment07\assignment07-1\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+    402 bytes of readonly  code memory
+     94 bytes of readonly  data memory
+  8'200 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
